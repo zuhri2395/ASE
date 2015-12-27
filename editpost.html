@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
+    header('location:index.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +35,7 @@
 <body>
 
 <!-- login special -->
-<nav>
+<!-- <nav>
     <ul>
         <li id="login">
             <a id="login-trigger" href="#">
@@ -50,7 +58,7 @@
             <a href="">Sign up</a>
         </li>
     </ul>
-</nav>
+</nav> -->
 <!-- login special -->
 <div id='head'>
     <div class='logoWrapL'></div>
@@ -66,7 +74,7 @@
         <li>
             <form>
                 <div class="searchE">
-                    <input class="left" type='text'>
+                    <input class="left" type='text' placeholder="Search">
                     <input class='lupLogo left' type='submit' value="">
                 </div>
             </form>
@@ -82,8 +90,8 @@
             <input type="email" name="field3" class="field-long"/>
         </li>
         <li>
-            <label>Catagory</label>
-            <select name="field4" class="field-select">
+            <label>Category</label>
+            <select name="category" class="field-select">
                 <option value="Bag">Bag</option>
                 <option value="Accesories">Accesories</option>
                 <option value="kain batik">Kain Batik</option>

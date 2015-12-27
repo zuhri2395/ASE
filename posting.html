@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
+    header('location:index.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +35,7 @@
 <body>
 
 <!-- login special -->
-<nav>
+<!-- <nav>
     <ul>
         <li id="login">
             <a id="login-trigger" href="#">
@@ -49,7 +57,7 @@
             <a href="">Sign up</a>
         </li>
     </ul>
-</nav>
+</nav> -->
 <!-- login special -->
 <div id='head'>
     <div class='logoWrapL'></div>
@@ -65,7 +73,7 @@
         <li>
             <form>
                 <div class="searchE">
-                    <input class="left" type='text'>
+                    <input class="left" type='text' placeholder="Search">
                     <input class='lupLogo left' type='submit' value="">
                 </div>
             </form>
@@ -74,30 +82,30 @@
 </div>
 
 <div id="form"></div>
-<form>
+<form action="post-core.php" method="POST">
     <ul class="form-style-1">
         <li>
             <label>Title </label>
-            <input type="email" name="field3" class="field-long"/>
+            <input type="text" name="title" class="field-long"/>
         </li>
         <li>
-            <label>Catagory</label>
-            <select name="field4" class="field-select">
-                <option value="Bag">Bag</option>
-                <option value="Accesories">Accesories</option>
-                <option value="kain batik">Kain Batik</option>
+            <label>Category</label>
+            <select name="category" class="field-select">
+                <option value="bag">Bag</option>
+                <option value="accesories">Accesories</option>
+                <option value="batik">Kain Batik</option>
                 <option value="original wears">Original Wears</option>
                 <option value="handycraft">Handycraft</option>
-                <option value="Gerabah">Gerabah</option>
+                <option value="gerabah">Gerabah</option>
             </select>
         </li>
         <li>
             <label>Description </label>
-            <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
+            <textarea name="description" id="field5" class="field-long field-textarea"></textarea>
         </li>
         <li>
             <label>Upload a Picture</label>
-            <input type="file" size="20" id="imageUpload" class=" ">
+            <input type="file" size="20" id="imageUpload" name="img">
         </li>
         <li>
             <input type="submit" value="Submit"/>

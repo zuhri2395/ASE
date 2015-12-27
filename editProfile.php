@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
+	header('location:index.php');
+}
+$user = $_SESSION['username'];
+$sql = mysql_query("SELECT * FROM member WHERE username='$user'");
+$profile = mysql_fetch_object($sql);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,13 +39,12 @@
 <body>
 
 <!-- login special -->
-<nav>
+<!-- <nav>
     <ul>
         <li id="login">
             <a id="login-trigger" href="#">
-                Log in
+                Log in <span></span>
             </a>
-
             <div id="login-content">
                 <form>
                     <fieldset id="inputs">
@@ -44,16 +53,16 @@
                     </fieldset>
                     <fieldset id="actions">
                         <input type="submit" id="submit" value="Log in">
+
                     </fieldset>
                 </form>
             </div>
-
         </li>
         <li id="signup">
             <a href="">Sign up</a>
         </li>
     </ul>
-</nav>
+</nav> -->
 <!-- login special -->
 <div id='head'>
     <div class='logoWrapL'></div>
@@ -62,7 +71,6 @@
 
 <div id='navigation'>
     <ul class="menu">
-
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Stores</a></li>
@@ -82,22 +90,22 @@
     <h1>Edit Profile </h1>
     <label>
         <span>Your Username :</span>
-        <input id="username" type="text" name="username" disabled/>
+        <input id="username" type="text" name="username" value="<?php echo $user; ?>" disabled/>
     </label>
 
     <label>
         <span>Your Email :</span>
-        <input id="email" type="email" name="profile-email" placeholder="Valid Email Address"/>
+        <input id="prof-email" type="email" name="profile-email" placeholder="Valid Email Address" value="<? echo $profile->email; ?>" required/>
     </label>
 
     <label>
         <span>Password :</span>
-        <input id="password" type="password" name="profile-password" placeholder="Type Password"/>
+        <input id="prof-password" type="password" name="profile-password" placeholder="Type Password" value="<?php echo $profile->password; ?>" required/>
     </label>
 
     <label>
         <span>About You :</span>
-        <textarea name="field5" class="fieldEsc" name="about"></textarea>
+        <textarea class="fieldEsc" name="about"><?php echo $profile->about; ?></textarea>
     </label>
 
     <label>
