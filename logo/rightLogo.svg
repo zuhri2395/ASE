@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="368"
+   height="28"
+   viewBox="0 0 368 28"
+   id="svg4912"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="rightLogo.svg"
+   inkscape:export-filename="C:\Users\Windows\Documents\vectors\rightLogo.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4914" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="365.08792"
+     inkscape:cy="-52.108427"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     units="px" />
+  <metadata
+     id="metadata4917">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1024.3622)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:37.3228302px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="1.459344"
+       y="978.57349"
+       id="text6206-5-8"
+       sodipodi:linespacing="125%"
+       transform="scale(0.93307075,1.0717301)"><tspan
+         sodipodi:role="line"
+         id="tspan6208-7-0"
+         x="1.459344"
+         y="978.57349"
+         style="font-size:25.65944672px">We here for </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:37.3228302px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffc726;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="155.41599"
+       y="979.24005"
+       id="text6206-5-9"
+       sodipodi:linespacing="125%"
+       transform="scale(0.93307075,1.0717301)"><tspan
+         sodipodi:role="line"
+         id="tspan6208-7-1"
+         x="155.41599"
+         y="979.24005"
+         style="font-size:25.65944672px;fill:#ffc726;fill-opacity:1">YOU</tspan></text>
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.505;stroke-linejoin:round;stroke-miterlimit:3.29999995;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4380"
+       width="169.90219"
+       height="20.8344"
+       x="199.59529"
+       y="1027.863" />
+  </g>
+</svg>

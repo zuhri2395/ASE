@@ -1,0 +1,204 @@
+/* CSS style */
+body {
+	margin :0;
+	padding: 0;
+	font-family:sans-serif, Arial;
+	width: 1000px;
+	height: auto;
+	margin: 10px auto;
+
+}
+ul{
+	list-style: none;
+	text-align: center;
+	
+}
+#head{
+
+	width: 100%;
+	
+	background:url(logo/langgeng.svg) no-repeat center center;
+	height: 200px;
+}
+
+.logoWrapL{
+
+	float:left;
+	width:40%; 
+	margin-top:70px;
+	background:url(logo/leftLogo.svg) no-repeat left center;
+	height:70px;
+}
+.logoWrapR{
+
+	float:right;
+	width:40%; 
+	margin-top:95px;
+	background:url(logo/rightLogo.svg) no-repeat right center;
+	height:29px;
+}
+
+
+#navigation{
+		background-color: #212020;
+		text-align: center;
+		padding: 20px 0 20px 0;
+		width:100%;
+		height: auto;
+		margin: 10px 0;
+}
+.menu{
+
+	margin: 0 auto;
+	width:620px;
+	list-style: none;
+	height:20px;
+	padding-left:100px;
+
+}
+
+.menu > li {
+
+	/*display: inline-block;*/
+	float: left;
+	padding-right: 30px;
+	font-size: 1.2em; 
+	padding-bottom: 20px;
+}
+.menu >li>a{
+	text-decoration: none;
+	color: #eae8e8
+
+}
+.menu > li > a:hover{
+	color: #ffc71e
+
+}
+.lupLogo{
+
+	background: url("logo/lupLogo.svg") ;
+	height:21px;
+	width:21px;
+	border:none;
+}
+.searchE{
+	float:left;
+	height:auto;
+	width:200px;
+
+}
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.content{
+
+	width:100%;
+	height: auto;
+
+}
+.boxContent{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+
+}
+a.box1:link{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+
+	background:url("content/accesories.png") no-repeat left center;
+}
+a.box1:hover{
+	background:url("content/accesories2.png") no-repeat left center;
+}
+a.box2:link{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+
+	background:url("content/bag.png") no-repeat left center;
+}
+a.box2:hover{
+	background:url("content/bag2.png") no-repeat left center;
+}
+a.box3:link{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+
+	background:url("content/bajuBatik.png") no-repeat left center;
+}
+a.box3:hover{
+	background:url("content/bajuBatik2.png") no-repeat left center;
+}
+a.box4:link{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+
+	background:url("content/batik.png") no-repeat left center;
+}
+a.box4:hover{
+	background:url("content/batik2.png") no-repeat left center;
+}
+a.box5:link{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+
+	background:url("content/gerabah.png") no-repeat left center;
+}
+a.box5:hover{
+	background:url("content/gerabah2.png") no-repeat left center;
+}
+a.box6:link{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+
+	background:url("content/hadyCraft.png") no-repeat left center;
+}
+a.box6:hover{
+	background:url("content/handyCraft2.png") no-repeat left center;
+}
+
+
+
+
+#footer {
+    clear: both;
+    position: relative;
+    margin-bottom: 0;
+    z-index: 10;
+    height: 150px;
+    background-color: #212120;
+}
+.insideFoot{
+	width: 250px;
+	height: auto;
+	color: #dbdedc;
+	margin:10px auto;
+	margin-top: 0;
+	padding-top: 1px;
+}
+.footText{
+	font-size: 0.8em;
+}

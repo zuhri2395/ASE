@@ -1,0 +1,67 @@
+#content{
+	width:100%;
+	height:auto;
+
+}
+.profile{
+	margin: 60px auto;
+	width:500px;
+	height:auto;
+
+}
+.photoProf{
+
+	width: 100px;
+	height:100px;
+	background-repeat: no-repeat;
+    background-size: 150px 100px;
+    background-position: center; 
+	border-radius: 100%;
+	margin: 10px auto;
+
+}
+ul{
+	list-style: none;
+}
+.userName{
+	font-family: sans-serif;
+	font-size: 2em;
+	text-align: center;
+	color: #353331;
+	
+}
+.description{
+	font-family: sans-serif;
+	font-size: 1.5em;
+	text-align: center;
+	color: #666969;
+
+}
+.buttonPro{
+	background-color: #212020;
+	width:130px;
+	height:30px;
+	border-radius: 5%;
+	line-height: 30px;
+	text-align: center;
+	vertical-align: middle;
+	color:#e5eaea;
+	font-size: 1.1em;
+	float: left;
+	margin-left:90px;
+
+}
+.buttonOpe{
+
+	background-color: #fcc71e;
+	width:130px;
+	height:30px;
+	border-radius: 5%;
+	line-height: 30px;
+	text-align: center;
+	vertical-align: middle;
+	color: #e5eaea;
+	font-size: 1.1em;
+	float:left;
+	margin-left:90px;
+}

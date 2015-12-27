@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<title>Langgeng Home </title>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="stylesheet" type="text/css" href="style.css">
+			<link rel="stylesheet" type="text/css" href="login.css">
+			<link rel="stylesheet" type="text/css" href="banner.css">
+			<link rel="stylesheet" type="text/css" href="posting.css">
+			<link rel="stylesheet" type="text/css" href="profile.css">
+			<link rel="stylesheet" type="text/css" href="store.css">
+		</head>
+		<body>
+
+			<!-- login special -->
+			<nav>
+				<ul>
+			    <li id="login">
+			      <a id="login-trigger" href="#">
+			        Log in 
+			      </a>
+
+			      <div id="login-content">
+			        <form>
+			          <fieldset id="inputs">
+			            <input id="username" type="email" name="Email" placeholder="Your email address" required>   
+			            <input id="password" type="password" name="Password" placeholder="Password" required>
+			          </fieldset>
+			          <fieldset id="actions">
+			            <input type="submit" id="submit" value="Log in">
+			            
+			          </fieldset>
+			        </form>
+			      </div>                     
+			    </li>
+			    <li id="signup">
+			      <a href="">Sign up</a>
+			    </li>
+			  </ul>
+			  <script src = "js/jquery.js"></script><script>$(document).ready(function(){
+			  $('#login-trigger').click(function(){
+			    $(this).next('#login-content').slideToggle();
+			    $(this).toggleClass('active');          
+			    
+			    if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
+			      else $(this).find('span').html('&#x25BC;')
+			    })
+			});</script>
+						</nav>
+						<!-- login special -->
+			<div id='head'>
+				<div class='logoWrapL'></div>
+				 <div class='logoWrapR'></div>
+			 </div>
+
+			 
+
+			<div id='navigation'>
+				<ul class="menu">
+
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Stores</a></li>
+					<li><a href="#">Help</a></li>
+					<li><form>
+					<div class="searchE">
+						<input class="left" type='text'>
+						<input class='lupLogo left' type='submit' value ="">
+					</div>
+				</form> 
+				</li>
+				</ul>
+
+			</div>
+			<div class="content">
+				<div class="boxStore">
+					<ul>
+						<div class="photoProf" style="background-image:url('img/profile.jpg');"></div>	  
+						<li class="userName"> Store Name </li>
+						<ul class="infoI"><li><h3>semarang</h3></li></ul>
+						<ul class="infoII"><li><h3>08507507603</h3></li></ul>
+					</ul>
+				</div>
+				<div class="boxStore">
+					<ul>
+						<div class="photoProf" style="background-image:url('img/profile.jpg');"></div>	  
+						<li class="userName"> Store Name </li>
+						<ul class="infoI"><li><h3>semarang</h3></li></ul>
+						<ul class="infoII"><li><h3>08507507603</h3></li></ul>
+					</ul>
+				</div>
+
+				<div class="boxStore">
+					<ul>
+						<div class="photoProf" style="background-image:url('img/profile.jpg');"></div>	  
+						<li class="userName"> Store Name </li>
+						<ul class="infoI"><li><h3>semarang</h3></li></ul>
+						<ul class="infoII"><li><h3>08507507603</h3></li></ul>
+					</ul>
+				</div>
+
+
+			</div>
+
+	</body>
+</html>

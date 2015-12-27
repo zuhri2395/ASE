@@ -1,0 +1,57 @@
+
+.content{
+	width:100%;
+	height:auto;
+}
+
+/*#sh1{
+	width: 220px;
+	height: 220px;
+	background-color: red;
+	float: left;
+}*/
+.boxStore {
+	margin :10px;
+	width: 200px;
+	height: 270px;
+	background-color: #ddd;
+	float: left;
+}
+.infoI{
+	margin:1px auto;
+	
+	list-style-image: url('logo/location.png');
+}
+.infoII{
+	margin:1px auto;
+	
+	list-style-image: url('logo/phone.svg');
+}
+h3{
+	font-size: 0.9em;
+	width: 90px;
+	text-align: center;
+
+}
+li{
+	text-align: center;
+}
+ul{
+	padding-left: 0;
+}
+
+ul.infoI{
+
+	width: 60px;
+	padding: 0;
+
+}
+ul.infoII{
+	width: 70px;
+	padding: 0;
+}
+.userName{
+
+	font-size: 1.2em;
+}
+
