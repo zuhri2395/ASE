@@ -1,13 +1,9 @@
 
-
-nav{
-
-  
-  
+nav {  
   position: absolute;
-  
   margin-right: 1.5em;
 }
+
 nav ul {
   margin: 0;
   padding: 0;

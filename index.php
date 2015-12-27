@@ -82,7 +82,7 @@
             <div id="login-content">
                 <form action="login.php" method="POST">
                     <fieldset id="inputs">
-                        <input id="username" type="email" name="email" placeholder="Your email address" required>
+                        <input id="email" type="email" name="email" placeholder="Your email address" required>
                         <input id="password" type="password" name="password" placeholder="Password" required>
                     </fieldset>
 
@@ -93,7 +93,7 @@
             </div>
         </li>
         <li id="signup">
-            <a href="">Sign up</a>
+            <a href="register.html">Sign up</a>
         </li>
     </ul>
 

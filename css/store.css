@@ -20,12 +20,12 @@
 .infoI{
 	margin:1px auto;
 	
-	list-style-image: url('logo/location.png');
+	list-style-image: url('../logo/location.png');
 }
 .infoII{
 	margin:1px auto;
 	
-	list-style-image: url('logo/phone.svg');
+	list-style-image: url('../logo/phone.svg');
 }
 h3{
 	font-size: 0.9em;
