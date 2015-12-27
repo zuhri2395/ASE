@@ -11,9 +11,11 @@ $sql = mysql_query("SELECT COUNT(*) AS status FROM member WHERE email='$email' A
 $status = mysql_fetch_object($sql)->status;
 
 if($status) {
+	$sql = mysql_query("SELECT username FROM member WHERE email='$email'");
+	$username = mysql_fetch_object($sql)->username;
 	session_start();
 	$_SESSION['login'] = true;
-	$_SESSION['email'] = $email;
+	$_SESSION['username'] = $username;
 	header('location:' . $referrer);
 } else {
 	$_SESSION['login'] = false;

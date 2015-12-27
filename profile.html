@@ -4,11 +4,26 @@
 			<title>Langgeng Home </title>
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<link rel="stylesheet" type="text/css" href="style.css">
-			<link rel="stylesheet" type="text/css" href="login.css">
-			<link rel="stylesheet" type="text/css" href="banner.css">
-			<link rel="stylesheet" type="text/css" href="posting.css">
-			<link rel="stylesheet" type="text/css" href="profile.css">
+			<link rel="stylesheet" type="text/css" href="css/style.css">
+			<link rel="stylesheet" type="text/css" href="css/login.css">
+			<link rel="stylesheet" type="text/css" href="css/banner.css">
+			<link rel="stylesheet" type="text/css" href="css/posting.css">
+			<link rel="stylesheet" type="text/css" href="css/profile.css">
+			<script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#login-trigger').click(function () {
+                $(this).next('#login-content').slideToggle();
+                $(this).toggleClass('active');
+
+                if ($(this).hasClass('active')) {
+                    $(this).find('span').html('&#x25B2;');
+                } else {
+                    $(this).find('span').html('&#x25BC;');
+                }
+            })
+        });
+    </script>
 		</head>
 		<body>
 
@@ -23,8 +38,8 @@
 			      <div id="login-content">
 			        <form>
 			          <fieldset id="inputs">
-			            <input id="username" type="email" name="Email" placeholder="Your email address" required>   
-			            <input id="password" type="password" name="Password" placeholder="Password" required>
+			            <input id="email" type="email" name="email" placeholder="Your email address" required>   
+			            <input id="password" type="password" name="passwprd" placeholder="Password" required>
 			          </fieldset>
 			          <fieldset id="actions">
 			            <input type="submit" id="submit" value="Log in">
@@ -37,22 +52,11 @@
 			      <a href="">Sign up</a>
 			    </li>
 			  </ul>
-			  <script src = "js/jquery.js"></script><script>$(document).ready(function(){
-			  $('#login-trigger').click(function(){
-			    $(this).next('#login-content').slideToggle();
-			    $(this).toggleClass('active');          
-			    
-			    if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
-			      else $(this).find('span').html('&#x25BC;')
-			    })
-			});</script>
 						</nav>
 						<!-- login special -->
 			<div id='head'>
 				<div class='logoWrapL'></div>
 				 <div class='logoWrapR'></div>
-			 </div>
-
 			 </div>
 
 			<div id='navigation'>
