@@ -1,9 +1,15 @@
 <?php
+include_once 'connection.php';
 session_start();
 if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
     header('location:index.php');
 }
-
+if(!isset($_GET['post_id'])) {
+    header('location:profile.php');
+}
+$id = $_GET['post_id'];
+$query = mysql_query("SELECT * FROM post WHERE post_id='$id'");
+$post = mysql_fetch_object($query);
 ?>
 
 <!DOCTYPE html>
@@ -35,30 +41,18 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
 <body>
 
 <!-- login special -->
-<!-- <nav>
+<nav>
     <ul>
         <li id="login">
-            <a id="login-trigger" href="#">
-                Log in <span></span>
+            <a id="login-trigger" href="profile.php">
+                <?php echo $_SESSION['username']; ?><span></span>
             </a>
-            <div id="login-content">
-                <form>
-                    <fieldset id="inputs">
-                        <input id="email" type="email" name="email" placeholder="Your email address" required>
-                        <input id="password" type="password" name="password" placeholder="Password" required>
-                    </fieldset>
-                    <fieldset id="actions">
-                        <input type="submit" id="submit" value="Log in">
-
-                    </fieldset>
-                </form>
-            </div>
         </li>
         <li id="signup">
-            <a href="">Sign up</a>
+            <a href="logout.php">Sign out</a>
         </li>
     </ul>
-</nav> -->
+</nav>
 <!-- login special -->
 <div id='head'>
     <div class='logoWrapL'></div>
@@ -83,30 +77,35 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
 </div>
 
 <div id="form"></div>
-<form>
+<form action="editpost.php" method="POST">
+    <input type="hidden" name="post_id" value="<?php echo $id; ?>";/>
     <ul class="form-style-1">
         <li>
             <label>Title </label>
-            <input type="email" name="field3" class="field-long"/>
+            <input type="text" name="title" class="field-long" value="<?php echo $post->title; ?>"/>
         </li>
         <li>
             <label>Category</label>
-            <select name="category" class="field-select">
-                <option value="Bag">Bag</option>
-                <option value="Accesories">Accesories</option>
-                <option value="kain batik">Kain Batik</option>
-                <option value="original wears">Original Wears</option>
+            <select name="category" class="field-select" id='category' required>
+                <option value="">Product Category</option>
+                <option value="bag">Bag</option>
+                <option value="accesories">Accessories</option>
+                <option value="batik">Kain Batik</option>
+                <option value="batik weare">Batik weare</option>
                 <option value="handycraft">Handycraft</option>
-                <option value="Gerabah">Gerabah</option>
+                <option value="gerabah">Gerabah</option>
             </select>
         </li>
+        <script type="text/javascript">
+             $('#category').val(<?php echo "\"" . $post->category . "\""; ?>);
+        </script>
         <li>
             <label>Description </label>
-            <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
+            <textarea name="description" id="field5" class="field-long field-textarea"><?php echo $post->description; ?></textarea>
         </li>
         <li>
-            <label>Upload a Picture</label>
-            <input type="file" size="20" id="imageUpload" class=" ">
+            <label>Price </label>
+            <input type="text" name="price" class="field-long" value="<?php echo $post->price; ?>"/>
         </li>
         <li>
             <input type="submit" value="Submit"/>

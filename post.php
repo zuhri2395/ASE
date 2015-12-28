@@ -94,6 +94,10 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
             <textarea name="description" id="field5" class="field-long field-textarea" required></textarea>
         </li>
         <li>
+            <label>Price </label>
+            <input type="text" name="price" class="field-long" required/>
+        </li>
+        <li>
             <label>Upload a Picture</label>
             <input type="file" size="20" id="imageUpload" name="img">
         </li>

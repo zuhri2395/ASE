@@ -20,6 +20,7 @@ $profile = mysql_fetch_object($sql);
     <link rel="stylesheet" type="text/css" href="css/banner.css">
     <link rel="stylesheet" type="text/css" href="css/posting.css">
     <link rel="stylesheet" type="text/css" href="css/profile.css">
+    <link rel="stylesheet" type="text/css" href="css/storeInside.css">
     <script src="js/jquery.js"></script>
     <script>
         $(document).ready(function () {
@@ -85,12 +86,55 @@ $profile = mysql_fetch_object($sql);
         <a href="editProfile.php">
             <div class="buttonPro">Edit Profile</div>
         </a>
-        <a href="#">
-            <div class="buttonOpe">Open Business</div>
-        </a>
+        <?php
+            $sql = mysql_query("SELECT COUNT(*) AS exist FROM shops WHERE username='$user'");
+            $exist = mysql_fetch_object($sql)->exist;
+            $shop;
+            if($exist) {
+                echo "<a href='post.php'>";
+                echo "<div class='buttonOpe'>Add Post</div>";
+                echo "</a>";
+            } else {
+                echo "<a href='openShop.php'>";
+                echo "<div class='buttonOpe'>Open Business</div>";
+                echo "</a>";
+            }
+        ?>
     </div>
 </div>
-
+<?php
+if($exist) {
+    $shop = mysql_fetch_object(mysql_query("SELECT * FROM shops WHERE username='$user'"));
+    $sql = mysql_query("SELECT COUNT(*) as exist FROM post WHERE shop_id='$shop->shop_id'");
+    $postExist = mysql_fetch_object($sql)->exist;
+    echo "<h1>$shop->name</h1>";
+    if($postExist) {
+        $query = mysql_query("SELECT * FROM post WHERE shop_id='$shop->shop_id'");
+        while($row = mysql_fetch_object($query)) {
+            echo "<div class='inSale'>";
+            echo "<a href='delPost.php?post_id=$row->post_id'>";
+            echo "<div class='delPost'>Delete</div>";
+            echo "</a>";
+            echo "<a href='edit.php?post_id=$row->post_id'>";
+            echo "<div class='editPost'>Edit</div>";
+            echo "</a>";
+            echo "<div class='insideSale'>";
+            echo "<img class='goods' src='store/$row->pictures' width='150' height='150'>";
+            echo "<h2>$row->title</h2>";
+            echo "<p class='descriptionp'>$row->description</p>";
+            echo "<div class='price'><h2>$row->price</h2></div>";
+            echo "<ul class='infoI'>";
+            echo "<li><h3>$shop->location</h3></li>";
+            echo "</ul>";
+            echo "<ul class='infoII'>";
+            echo "<li><h3>$shop->phone</h3></li>";
+            echo "</ul>";
+            echo "</div>";
+            echo "</div>";
+        }
+    }
+}
+?>
 <div id='footer'>
     <div class="insideFoot">
         <ul>

@@ -7,7 +7,8 @@ $name = mysql_real_escape_string($_POST['name']);
 $location = mysql_real_escape_string($_POST['location']);
 $phone = mysql_real_escape_string($_POST['phone']);
 $prefix = "shop-";
-$check = mysql_query("SELECT EXISTS (SELECT * FROM shops)");
+$query = mysql_query("SELECT EXISTS (SELECT * FROM shops) AS exist");
+$check = mysql_fetch_object($query)->exist;
 
 if(!$check) {
 	$shop_id = $prefix . "1";
