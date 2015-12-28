@@ -84,7 +84,7 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
                 <option value="bag">Bag</option>
                 <option value="accesories">Accessories</option>
                 <option value="batik">Kain Batik</option>
-                <option value="batik weare">Batik weare</option>
+                <option value="batik weare">Batik Weare</option>
                 <option value="handycraft">Handycraft</option>
                 <option value="gerabah">Gerabah</option>
             </select>

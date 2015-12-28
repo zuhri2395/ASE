@@ -1,3 +1,10 @@
+<?php
+include_once 'connection.php';
+session_start();
+
+$category = strtolower(mysql_real_escape_string($_GET['category']));
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,15 +35,17 @@
 <body>
 
 <!-- login special -->
+<?php
+if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
+?>
 <nav>
     <ul>
         <li id="login">
             <a id="login-trigger" href="#">
-                Log in
+                Log in <span></span>
             </a>
-
             <div id="login-content">
-                <form>
+                <form action="login.php" method="POST">
                     <fieldset id="inputs">
                         <input id="email" type="email" name="email" placeholder="Your email address" required>
                         <input id="password" type="password" name="password" placeholder="Password" required>
@@ -48,10 +57,28 @@
             </div>
         </li>
         <li id="signup">
-            <a href="">Sign up</a>
+            <a href="register.html">Sign up</a>
         </li>
     </ul>
 </nav>
+<?php
+} else {
+?>
+<nav>
+    <ul>
+        <li id="login">
+            <a id="login-trigger" href="profile.php">
+                <?php echo $_SESSION['username']; ?><span></span>
+            </a>
+        </li>
+        <li id="signup">
+            <a href="logout.php">Sign out</a>
+        </li>
+    </ul>
+</nav>
+<?php
+}
+?>
 <!-- login special -->
 <div id='head'>
     <div class='logoWrapL'></div>
@@ -67,7 +94,7 @@
         <li>
             <form>
                 <div class="searchE">
-                    <input class="left" type='text'>
+                    <input class="left" type='text' placeholder="Search">
                     <input class='lupLogo left' type='submit' value="">
                 </div>
             </form>
@@ -76,68 +103,28 @@
 </div>
 
 <div id="content">
-    <h1>HANDYCRAFT</h1>
-    <div class="inSale">
-        <div class="insideSale">
-            <img class="goods" src="content/inStore/bag.jpg" width="150" height="150">
-            <h2>Name</h2>
-            <p class="descriptionp">
-                asdasdasdasdasdasdasdasdasdqweasdqwwe qwe qw qwweqeqwe qwe qw qwe qwe qwe qw qw qwq qweqweqw eqe qeqeq
-                eeq e e e ee qeq wqwe
-            </p>
-            <div class="price"><h2>10.000</h2></div>
-            <ul class="infoI">
-                <li><h3>semarang</h3></li>
-            </ul>
-            <ul class="infoII">
-                <li><h3>08507507603</h3></li>
-            </ul>
-            <ul class="infoIII">
-                <li><h3>shopName</h3></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="inSale">
-        <div class="insideSale">
-            <img class="goods" src="content/inStore/bag.jpg" width="150" height="150">
-            <h2>Name</h2>
-            <p class="descriptionp">
-                asdasdasdasdasdasdasdasdasdqweasdqwwe qwe qw qwweqeqwe qwe qw qwe qwe qwe qw qw qwq qweqweqw eqe qeqeq
-                eeq e e e ee qeq wqwe
-            </p>
-            <div class="price"><h2>10.000</h2></div>
-            <ul class="infoI">
-                <li><h3>semarang</h3></li>
-            </ul>
-            <ul class="infoII">
-                <li><h3>08507507603</h3></li>
-            </ul>
-            <ul class="infoIII">
-                <li><h3>shopName</h3></li>
-            </ul>
-        </div>
-    </div>
-    <div class="inSale">
-        <div class="insideSale">
-            <img class="goods" src="content/inStore/bag.jpg" width="150" height="150">
-            <h2>Name</h2>
-            <p class="descriptionp">
-                asdasdasdasdasdasdasdasdasdqweasdqwwe qwe qw qwweqeqwe qwe qw qwe qwe qwe qw qw qwq qweqweqw eqe qeqeq
-                eeq e e e ee qeq wqwe
-            </p>
-            <div class="price"><h2>10.000</h2></div>
-            <ul class="infoI">
-                <li><h3>semarang</h3></li>
-            </ul>
-            <ul class="infoII">
-                <li><h3>08507507603</h3></li>
-            </ul>
-            <ul class="infoIII">
-                <li><h3>shopName</h3></li>
-            </ul>
-        </div>
-    </div>
+<?php
+    $query = mysql_query("SELECT * FROM post WHERE category='$category'");
+    echo "<h1>" . strtoupper($category) . "</h1>";
+    while($row = mysql_fetch_object($query)) {
+        $sql = mysql_query("SELECT * FROM shops WHERE shop_id='$row->shop_id'");
+        $shop = mysql_fetch_object($sql);
+        echo "<div class='inSale'>";
+        echo "<div class='insideSale'>";
+        echo "<img class='goods' src='store/$row->pictures' width='150' height='150'>";
+        echo "<h2>$row->title</h2>";
+        echo "<p class='descriptionp'>$row->description</p>";
+        echo "<div class='price'><h2>$row->price</h2></div>";
+        echo "<ul class='infoI'>";
+        echo "<li><h3>$shop->location</h3></li>";
+        echo "</ul>";
+        echo "<ul class='infoII'>";
+        echo "<li><h3>$shop->phone</h3></li>";
+        echo "</ul>";
+        echo "</div>";
+        echo "</div>";
+    }
+?>
 </div>
 
 <div id='footer'>

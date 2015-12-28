@@ -1,3 +1,8 @@
+<?php
+include_once 'connection.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,14 +34,17 @@
 <body>
 
 <!-- login special -->
+<?php
+if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
+?>
 <nav>
     <ul>
         <li id="login">
             <a id="login-trigger" href="#">
-                Log in
+                Log in <span></span>
             </a>
             <div id="login-content">
-                <form>
+                <form action="login.php" method="POST">
                     <fieldset id="inputs">
                         <input id="email" type="email" name="email" placeholder="Your email address" required>
                         <input id="password" type="password" name="password" placeholder="Password" required>
@@ -48,10 +56,28 @@
             </div>
         </li>
         <li id="signup">
-            <a href="">Sign up</a>
+            <a href="register.html">Sign up</a>
         </li>
     </ul>
 </nav>
+<?php
+} else {
+?>
+<nav>
+    <ul>
+        <li id="login">
+            <a id="login-trigger" href="profile.php">
+                <?php echo $_SESSION['username']; ?><span></span>
+            </a>
+        </li>
+        <li id="signup">
+            <a href="logout.php">Sign out</a>
+        </li>
+    </ul>
+</nav>
+<?php
+}
+?>
 <!-- login special -->
 <div id='head'>
     <div class='logoWrapL'></div>
@@ -67,7 +93,7 @@
         <li>
             <form>
                 <div class="searchE">
-                    <input class="left" type='text'>
+                    <input class="left" type='text' placeholder="Search">
                     <input class='lupLogo left' type='submit' value="">
                 </div>
             </form>
@@ -75,43 +101,24 @@
     </ul>
 </div>
 <div class="content">
-    <div class="boxStore">
-        <ul>
-            <div class="photoProf" style="background-image:url('img/profile.jpg');"></div>
-            <li class="userName"> Store Name</li>
-            <ul class="infoI">
-                <li><h4>semarang</h4></li>
-            </ul>
-            <ul class="infoII">
-                <li><h4>08507507603</h4></li>
-            </ul>
-        </ul>
-    </div>
-    <div class="boxStore">
-        <ul>
-            <div class="photoProf" style="background-image:url('img/profile.jpg');"></div>
-            <li class="userName"> Store Name</li>
-            <ul class="infoI">
-                <li><h4>semarang</h4></li>
-            </ul>
-            <ul class="infoII">
-                <li><h4>08507507603</h4></li>
-            </ul>
-        </ul>
-    </div>
-
-    <div class="boxStore">
-        <ul>
-            <div class="photoProf" style="background-image:url('img/profile.jpg');"></div>
-            <li class="userName"> Store Name</li>
-            <ul class="infoI">
-                <li><h4>semarang</h4></li>
-            </ul>
-            <ul class="infoII">
-                <li><h4>08507507603</h4></li>
-            </ul>
-        </ul>
-    </div>
+<?php
+    $sql = mysql_query("SELECT * FROM shops");
+    while($row = mysql_fetch_object($sql)) {
+        $query = mysql_query("SELECT picture FROM member WHERE username='$row->username'");
+        $pic = mysql_fetch_object($query)->picture;
+        echo "<div class='boxStore'>";
+        echo "<ul>";
+        echo "<div class='photoProf' style='background-image:url(profile/$pic);'></div>";
+        echo "<li class='userName'>$row->name</li>";
+        echo "<ul class='infoI'>";
+        echo "<li><h4>$row->location</h4></li>";
+        echo "</ul>";
+        echo "<ul class='infoII'>";
+        echo "<li><h4>$row->phone</h4></li>";
+        echo "</ul>";
+        echo "</div>";
+    }
+?>
 </div>
 <div id='footer'>
     <div class="insideFoot">

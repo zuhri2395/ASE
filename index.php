@@ -181,23 +181,23 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
 
 <!-- banner1 -->
 <div class="content">
-    <a href="#" class="box1">
-        Accesories
+    <a href="Category/Accesories" class="box1">
+        Accessories
     </a>
-    <a href="#" class="box2">
+    <a href="Category/Bag" class="box2">
         Bag
     </a>
-    <a href="#" class="box3">
+    <a href="Category/Batik Weare" class="box3">
         Batik Weare
     </a>
-    <a href="#" class="box4">
+    <a href="Category/Batik" class="box4">
         Batik
     </a>
-    <a href="#" class="box5">
+    <a href="Category/Gerabah" class="box5">
         Gerabah
     </a>
-    <a href="#" class="box6">
-        Handy Craft
+    <a href="Category/Handycraft" class="box6">
+        Handycraft
     </a>
 </div>
 
