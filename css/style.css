@@ -13,6 +13,7 @@ ul{
 	text-align: center;
 	
 }
+a{color:white;}
 #head{
 
 	width: 100%;
@@ -199,6 +200,114 @@ a.box6:hover{
 	margin-top: 0;
 	padding-top: 1px;
 }
+
+.boxContent{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+
+}
+a.box1:link{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+	text-decoration: overline underline;
+	text-align: center;
+	line-height: 300px;
+	font-size: 3em;
+	background:url("../content/accesories.png") no-repeat left center;
+}
+a.box1:hover{
+	background:url("../content/accesories2.png") no-repeat left center;
+	color: #ffc71e;
+}
+a.box2:link{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+	text-decoration: overline underline;
+	text-align: center;
+	line-height: 300px;
+	font-size: 3em;
+	background:url("../content/bag.png") no-repeat left center;
+}
+a.box2:hover{
+	background:url("../content/bag2.png") no-repeat left center;
+	color: #ffc71e;
+}
+a.box3:link{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+text-decoration: overline underline;
+	text-align: center;
+	line-height: 300px;
+	font-size: 3em;
+	background:url("../content/bajuBatik.png") no-repeat left center;
+}
+a.box3:hover{
+	background:url("../content/bajuBatik2.png") no-repeat left center;
+	color: #ffc71e;
+}
+a.box4:link{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+text-decoration: overline underline;
+	text-align: center;
+	line-height: 300px;
+	font-size: 3em;
+	background:url("../content/batik.png") no-repeat left center;
+}
+a.box4:hover{
+	background:url("../content/batik2.png") no-repeat left center;
+	color: #ffc71e;
+}
+a.box5:link{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+text-decoration: overline underline;
+	text-align: center;
+	line-height: 300px;
+	font-size: 3em;
+	background:url("../content/gerabah.png") no-repeat left center;
+
+}
+a.box5:hover{
+	background:url("../content/gerabah2.png") no-repeat left center;
+	color: #ffc71e;
+}
+a.box6:link{
+	width:300px;
+	height: 300px;
+	float: left;
+	margin :20px;
+	margin-left: 120px;
+text-decoration: overline underline;
+	text-align: center;
+	line-height: 300px;
+	font-size: 3em;
+	background:url("../content/handyCraft.png") no-repeat left center;
+}
+a.box6:hover{
+	background:url("../content/handyCraft2.png") no-repeat left center;
+	color: #ffc71e;
+}
+
+
 .footText{
 	font-size: 0.8em;
 }

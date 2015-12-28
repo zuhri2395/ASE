@@ -35,29 +35,18 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
 <body>
 
 <!-- login special -->
-<!-- <nav>
+<nav>
     <ul>
         <li id="login">
             <a id="login-trigger" href="#">
-                Log in <span></span>
+                <?php echo $_SESSION['username']; ?><span></span>
             </a>
-            <div id="login-content">
-                <form>
-                    <fieldset id="inputs">
-                        <input id="email" type="email" name="email" placeholder="Your email address" required>
-                        <input id="password" type="password" name="password" placeholder="Password" required>
-                    </fieldset>
-                    <fieldset id="actions">
-                        <input type="submit" id="submit" value="Log in">
-                    </fieldset>
-                </form>
-            </div>
         </li>
         <li id="signup">
-            <a href="">Sign up</a>
+            <a href="logout.php">Sign out</a>
         </li>
     </ul>
-</nav> -->
+</nav>
 <!-- login special -->
 <div id='head'>
     <div class='logoWrapL'></div>

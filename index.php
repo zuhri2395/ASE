@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,20 +75,21 @@
 <body>
 
 <!-- login special -->
+<?php
+if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
+?>
 <nav>
     <ul>
         <li id="login">
             <a id="login-trigger" href="#">
                 Log in <span></span>
             </a>
-
             <div id="login-content">
                 <form action="login.php" method="POST">
                     <fieldset id="inputs">
                         <input id="email" type="email" name="email" placeholder="Your email address" required>
                         <input id="password" type="password" name="password" placeholder="Password" required>
                     </fieldset>
-
                     <fieldset id="actions">
                         <input type="submit" id="submit" value="Log in">
                     </fieldset>
@@ -96,8 +100,25 @@
             <a href="register.html">Sign up</a>
         </li>
     </ul>
-
 </nav>
+<?php
+} else {
+?>
+<nav>
+    <ul>
+        <li id="login">
+            <a id="login-trigger" href="profile.php">
+                <?php echo $_SESSION['username']; ?><span></span>
+            </a>
+        </li>
+        <li id="signup">
+            <a href="logout.php">Sign out</a>
+        </li>
+    </ul>
+</nav>
+<?php
+}
+?>
 <!-- login special -->
 <div id='head'>
     <div class='logoWrapL'></div>
@@ -106,7 +127,6 @@
 
 <div id='navigation'>
     <ul class="menu">
-
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Stores</a></li>
@@ -120,14 +140,16 @@
             </form>
         </li>
     </ul>
-
 </div>
 
-<div id="jssor_1" style="position: relative; margin: 10px auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden; visibility: hidden;">
+<div id="jssor_1"
+     style="position: relative; margin: 10px auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden; visibility: hidden;">
     <!-- Loading Screen -->
     <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
-        <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-        <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        <div
+            style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+        <div
+            style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
     </div>
     <div data-u="slides"
          style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden;">
@@ -156,32 +178,27 @@
           data-autocenter="2"></span>
     <a href="http://www.jssor.com" style="display:none">Bootstrap Carousel</a>
 </div>
-<!-- banner1 -->
 
+<!-- banner1 -->
 <div class="content">
     <a href="#" class="box1">
-        asdasd
+        Accesories
     </a>
-
     <a href="#" class="box2">
+        Bag
     </a>
-
     <a href="#" class="box3">
-
+        Batik Weare
     </a>
-
     <a href="#" class="box4">
-
+        Batik
     </a>
-
     <a href="#" class="box5">
-
+        Gerabah
     </a>
     <a href="#" class="box6">
-
+        Handy Craft
     </a>
-
-
 </div>
 
 <div id='footer'>
@@ -197,5 +214,4 @@
 </div>
 
 </body>
-
 </html>

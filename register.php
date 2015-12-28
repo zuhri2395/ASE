@@ -3,7 +3,7 @@
 include_once 'connection.php';
 
 $user = mysql_real_escape_string($_POST['username']);
-$email = mysql_fetch_object($_POST['regis-email']);
+$email = mysql_real_escape_string($_POST['regis-email']);
 $pass = mysql_real_escape_string($_POST['pass']);
 $secretkey = "langgeng";
 $key = md5($pass.$secretkey);
