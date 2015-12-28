@@ -1,4 +1,5 @@
 RewriteEngine On    # Turn on the rewriting engine
 RewriteRule    ^Category/([A-Za-z0-9-\s]+)/?$ category.php?category=$1 [NC,L]
-RewriteRule    ^Category/((css|js|img|profile|store)/.*) $1
-RewriteRule    ^Category/(.*) $1
+RewriteRule    ^Search/([A-Za-z0-9-\s]+)/?$ search.php?q=$1 [NC,L]
+RewriteRule    ^(Category|Search)/((css|js|img|profile|store)/.*) $2
+RewriteRule    ^(Category|Search)/(.*) $2

@@ -1,0 +1,35 @@
+.about{
+	height: 300px;
+	width:350px;
+	background-color: #b5b3b5;
+	float: left;
+	margin-top: 20px;
+	margin-left: 100px;
+
+}
+h2.about1{
+	margin:0;
+	background-color: #434247;
+	color: #f7f7f3;
+	text-align: center;
+	font-weight: 500;
+	padding: 20px 1px;
+}
+.pAbout{
+	padding: 10px 10px;
+}
+.team{
+	margin-bottom: 20px;
+	height: auto;
+	width:350px;
+	background-color: #b5b3b5;
+	float: left;
+	margin-top: 20px;
+	margin-left: 100px;
+
+}
+.photoProf{
+	margin: 10px;
+	margin-left: 50px;
+	float:left;
+}

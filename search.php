@@ -1,8 +1,10 @@
 <?php
 include_once 'connection.php';
 session_start();
-?>
 
+$key = strtolower(mysql_real_escape_string($_GET['q']));
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +13,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
-    <link rel="stylesheet" type="text/css" href="css/banner.css">
     <link rel="stylesheet" type="text/css" href="css/posting.css">
     <link rel="stylesheet" type="text/css" href="css/profile.css">
-    <link rel="stylesheet" type="text/css" href="css/store.css">
+    <link rel="stylesheet" type="text/css" href="css/storeInside.css">
     <script src="js/jquery.js"></script>
     <script>
         $(document).ready(function () {
@@ -35,7 +36,7 @@ session_start();
 
             $('#search').click(function() {
                 var query = $('#keyword').val();
-                $(location).attr('href', "Search/" + query);
+                $(location).attr('href', query);
             });
         });
     </script>
@@ -95,9 +96,9 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
 
 <div id='navigation'>
     <ul class="menu">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="store.php">Stores</a></li>
+        <li><a href="../index.php">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../store.php">Stores</a></li>
         <li><a href="#">Help</a></li>
         <li>
             <form id="form-search">
@@ -110,26 +111,30 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
     </ul>
 </div>
 
-<div class="content">
+<div id="content">
 <?php
-    $sql = mysql_query("SELECT * FROM shops");
-    while($row = mysql_fetch_object($sql)) {
-        $query = mysql_query("SELECT picture FROM member WHERE username='$row->username'");
-        $pic = mysql_fetch_object($query)->picture;
-        echo "<div class='boxStore'>";
-        echo "<ul>";
-        echo "<div class='photoProf' style='background-image:url(profile/$pic);'></div>";
-        echo "<li class='userName'>$row->name</li>";
+    $query = mysql_query("SELECT * FROM post WHERE title LIKE '%$key%'");
+    while($row = mysql_fetch_object($query)) {
+        $sql = mysql_query("SELECT * FROM shops WHERE shop_id='$row->shop_id'");
+        $shop = mysql_fetch_object($sql);
+        echo "<div class='inSale'>";
+        echo "<div class='insideSale'>";
+        echo "<img class='goods' src='store/$row->pictures' width='150' height='150'>";
+        echo "<h2>$row->title</h2>";
+        echo "<p class='descriptionp'>$row->description</p>";
+        echo "<div class='price'><h2>$row->price</h2></div>";
         echo "<ul class='infoI'>";
-        echo "<li><h4>$row->location</h4></li>";
+        echo "<li><h3>$shop->location</h3></li>";
         echo "</ul>";
         echo "<ul class='infoII'>";
-        echo "<li><h4>$row->phone</h4></li>";
+        echo "<li><h3>$shop->phone</h3></li>";
         echo "</ul>";
+        echo "</div>";
         echo "</div>";
     }
 ?>
 </div>
+
 <div id='footer'>
     <div class="insideFoot">
         <ul>
@@ -141,5 +146,6 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
         </ul>
     </div>
 </div>
+
 </body>
 </html>

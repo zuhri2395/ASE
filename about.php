@@ -1,10 +1,9 @@
 <?php
-include_once 'connection.php';
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Langgeng Home </title>
     <meta charset="utf-8">
@@ -15,6 +14,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="css/posting.css">
     <link rel="stylesheet" type="text/css" href="css/profile.css">
     <link rel="stylesheet" type="text/css" href="css/store.css">
+    <link rel="stylesheet" type="text/css" href="css/about.css">
     <script src="js/jquery.js"></script>
     <script>
         $(document).ready(function () {
@@ -40,8 +40,8 @@ session_start();
         });
     </script>
 </head>
-<body>
 
+<body>
 <!-- login special -->
 <?php
 if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
@@ -92,7 +92,6 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
     <div class='logoWrapL'></div>
     <div class='logoWrapR'></div>
 </div>
-
 <div id='navigation'>
     <ul class="menu">
         <li><a href="index.php">Home</a></li>
@@ -109,31 +108,30 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
         </li>
     </ul>
 </div>
-
-<div class="content">
-<?php
-    $sql = mysql_query("SELECT * FROM shops");
-    while($row = mysql_fetch_object($sql)) {
-        $query = mysql_query("SELECT picture FROM member WHERE username='$row->username'");
-        $pic = mysql_fetch_object($query)->picture;
-        echo "<div class='boxStore'>";
-        echo "<ul>";
-        echo "<div class='photoProf' style='background-image:url(profile/$pic);'></div>";
-        echo "<li class='userName'>$row->name</li>";
-        echo "<ul class='infoI'>";
-        echo "<li><h4>$row->location</h4></li>";
-        echo "</ul>";
-        echo "<ul class='infoII'>";
-        echo "<li><h4>$row->phone</h4></li>";
-        echo "</ul>";
-        echo "</div>";
-    }
-?>
+<div class="about">
+    <h2 class="about1">
+        About
+    </h2>
+    <p class="pAbout">This Store only sell the traditional gift, which is very unique things.
+        <br> came from the really crazy idea and very regretful decision
+        <br>
+        <br> and actually this web site is to fullfill the Advance software engineering requirement. </p>
+</div>
+<div class="team">
+    <h2 class="about1">
+        The Dreamer
+    </h2>
+    <div class="photoProf" style="background-image:url('img/profile/sabiq.jpg');"></div>
+    <div class="photoProf" style="background-image:url('img/profile/nisa.jpg');"></div>
+    <div class="photoProf" style="background-image:url('img/profile/kentung.jpg');"></div>
+    <div class="photoProf" style="background-image:url('img/profile/ajie.jpg');"></div>
+    <div class="photoProf" style="background-image:url('img/profile/zuhri.jpg'); margin-left:130px;"></div>
 </div>
 <div id='footer'>
     <div class="insideFoot">
         <ul>
-            <li><h3>Contact Us</h3></li>
+            <li>
+                <h3 style="margin:1px auto;">Contact Us</h3></li>
             <li class="footText">Jl. Arjuna No. 65, Jawa Tengah 50131</li>
             <li class="footText"> Email : Sekretariat@Dinus.ac.id</li>
             <li class="footText">Fax. (024) 3569684</li>

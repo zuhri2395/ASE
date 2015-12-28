@@ -28,7 +28,16 @@ $category = strtolower(mysql_real_escape_string($_GET['category']));
                 } else {
                     $(this).find('span').html('&#x25BC;');
                 }
-            })
+            });
+
+            $('#form-search').submit(function(event) {
+                event.preventDefault();
+            });
+
+            $('#search').click(function() {
+                var query = $('#keyword').val();
+                $(location).attr('href', "../Search/" + query);
+            });
         });
     </script>
 </head>
@@ -87,15 +96,15 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
 
 <div id='navigation'>
     <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Stores</a></li>
+        <li><a href="../index.php">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../store.php">Stores</a></li>
         <li><a href="#">Help</a></li>
         <li>
-            <form>
+            <form id="form-search">
                 <div class="searchE">
-                    <input class="left" type='text' placeholder="Search">
-                    <input class='lupLogo left' type='submit' value="">
+                    <input class="left" type='text' id="keyword" placeholder="Search">
+                    <input class='lupLogo left' type='submit' id="search" value="">
                 </div>
             </form>
         </li>

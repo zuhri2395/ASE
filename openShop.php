@@ -18,16 +18,14 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
     <script src="js/jquery.js"></script>
     <script>
         $(document).ready(function () {
-            $('#login-trigger').click(function () {
-                $(this).next('#login-content').slideToggle();
-                $(this).toggleClass('active');
+            $('#form-search').submit(function(event) {
+                event.preventDefault();
+            });
 
-                if ($(this).hasClass('active')) {
-                    $(this).find('span').html('&#x25B2;');
-                } else {
-                    $(this).find('span').html('&#x25BC;');
-                }
-            })
+            $('#search').click(function() {
+                var query = $('#keyword').val();
+                $(location).attr('href', "Search/" + query);
+            });
         });
     </script>
 </head>
@@ -54,15 +52,15 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
 
 <div id='navigation'>
     <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Stores</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="store.php">Stores</a></li>
         <li><a href="#">Help</a></li>
         <li>
-            <form>
+            <form id="form-search">
                 <div class="searchE">
-                    <input class="left" type='text'>
-                    <input class='lupLogo left' type='submit' value="">
+                    <input class="left" type='text' id="keyword" placeholder="Search">
+                    <input class='lupLogo left' type='submit' id="search" value="">
                 </div>
             </form>
         </li>
