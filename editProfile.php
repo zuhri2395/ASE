@@ -1,4 +1,5 @@
 <?php
+include_once 'connection.php';
 session_start();
 if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
 	header('location:index.php');
@@ -39,30 +40,18 @@ $profile = mysql_fetch_object($sql);
 <body>
 
 <!-- login special -->
-<!-- <nav>
+<nav>
     <ul>
         <li id="login">
             <a id="login-trigger" href="#">
-                Log in <span></span>
+                <?php echo $_SESSION['username']; ?><span></span>
             </a>
-            <div id="login-content">
-                <form>
-                    <fieldset id="inputs">
-                        <input id="email" type="email" name="email" placeholder="Your email address" required>
-                        <input id="password" type="password" name="password" placeholder="Password" required>
-                    </fieldset>
-                    <fieldset id="actions">
-                        <input type="submit" id="submit" value="Log in">
-
-                    </fieldset>
-                </form>
-            </div>
         </li>
         <li id="signup">
-            <a href="">Sign up</a>
+            <a href="logout.php">Sign out</a>
         </li>
     </ul>
-</nav> -->
+</nav>
 <!-- login special -->
 <div id='head'>
     <div class='logoWrapL'></div>
@@ -86,7 +75,7 @@ $profile = mysql_fetch_object($sql);
     </ul>
 </div>
 
-<form action="editPof.php" method="POST" class="basic-grey">
+<form action="editProf.php" method="POST" class="basic-grey">
     <h1>Edit Profile </h1>
     <label>
         <span>Your Username :</span>
@@ -95,7 +84,7 @@ $profile = mysql_fetch_object($sql);
 
     <label>
         <span>Your Email :</span>
-        <input id="prof-email" type="email" name="profile-email" placeholder="Valid Email Address" value="<? echo $profile->email; ?>" required/>
+        <input id="prof-email" type="email" name="profile-email" placeholder="Valid Email Address" value="<?php echo $profile->email; ?>" required/>
     </label>
 
     <label>
@@ -110,7 +99,7 @@ $profile = mysql_fetch_object($sql);
 
     <label>
         <span>&nbsp;</span>
-        <input type="button" class="button" value="Send"/>
+        <input type="submit" class="button" value="Send"/>
     </label>
 </form>
 

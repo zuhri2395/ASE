@@ -17,9 +17,9 @@ $file = $_FILES['img'];
 if(empty($file['name'])) {
 	$sql = mysql_query("INSERT INTO post(shop_id, title, category, description, pictures) VALUES('$shop', '$title', '$category', '$desc', 'default.jpg') ");
 	if($sql) {
-		header('location:profile.php?status=sukses');
+		header('location:profile.php?status=success');
 	} else {
-		header('location:profile.php?status=gagal');
+		header('location:profile.php?status=failed');
 	}
 } else {
 	$ext = explode(".", $file['name']);
@@ -46,8 +46,8 @@ if(empty($file['name'])) {
 
 	$sql = mysql_query("INSERT INTO post(shop_id, title, category, description, pictures) VALUES('$shop', '$title', '$category', '$desc', '$pic')");
 	if($sql) {
-		header('location:profile.php?status=sukses');
+		header('location:profile.php?status=success');
 	} else {
-		header('location:profile.php?status=gagal');
+		header('location:profile.php?status=failes');
 	}
 }

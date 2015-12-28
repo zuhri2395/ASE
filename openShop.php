@@ -1,13 +1,20 @@
+<?php
+include_once 'connection.php';
+session_start();
+if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
+    header('location:index.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Langgeng Home </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="login.css">
-    <link rel="stylesheet" type="text/css" href="post.css">
-    <link rel="stylesheet" type="text/css" href="banner.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/post.css">
+    <link rel="stylesheet" type="text/css" href="css/banner.css">
     <script src="js/jquery.js"></script>
     <script>
         $(document).ready(function () {
@@ -30,23 +37,12 @@
 <nav>
     <ul>
         <li id="login">
-            <a id="login-trigger" href="#">
-                Log in <span></span>
+            <a id="login-trigger" href="profile.php">
+                <?php echo $_SESSION['username']; ?><span></span>
             </a>
-            <div id="login-content">
-                <form>
-                    <fieldset id="inputs">
-                        <input id="email" type="email" name="email" placeholder="Your email address" required>
-                        <input id="password" type="password" name="password" placeholder="Password" required>
-                    </fieldset>
-                    <fieldset id="actions">
-                        <input type="submit" id="submit" value="Log in">
-                    </fieldset>
-                </form>
-            </div>
         </li>
         <li id="signup">
-            <a href="">Sign up</a>
+            <a href="logout.php">Sign out</a>
         </li>
     </ul>
 </nav>
@@ -73,26 +69,26 @@
     </ul>
 </div>
 
-<form action="" method="post" class="basic-grey">
+<form action="shop.php" method="POST" class="basic-grey">
     <h1>Open Shop </h1>
     <label>
         <span>Store's name :</span>
-        <input id="name" type="text" name="name" placeholder="Your Full Name"/>
+        <input id="name" type="text" name="name" placeholder="Your Store Name"/>
     </label>
 
     <label>
         <span>Location :</span>
-        <input id="email" type="email" name="email" placeholder="Valid Email Address"/>
+        <input type="text" name="location" placeholder="Store Location"/>
     </label>
 
     <label>
         <span>Phone Number :</span>
-        <input id="password" type="text" name="name" placeholder="Type Password"/>
+        <input type="text" name="phone" placeholder="Store Phone Number"/>
     </label>
 
     <label>
         <span>&nbsp;</span>
-        <input type="button" class="button" value="Send"/>
+        <input type="submit" class="button" value="Send"/>
     </label>
 
     <div id='footer'>

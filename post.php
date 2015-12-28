@@ -71,26 +71,27 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false) {
 </div>
 
 <div id="form"></div>
-<form action="post-core.php" method="POST">
+<form action="post-core.php" method="POST" enctype="multipart/form-data">
     <ul class="form-style-1">
         <li>
             <label>Title </label>
-            <input type="text" name="title" class="field-long"/>
+            <input type="text" name="title" class="field-long" required/>
         </li>
         <li>
             <label>Category</label>
-            <select name="category" class="field-select">
+            <select name="category" class="field-select" required>
+                <option value="">Product Category</option>
                 <option value="bag">Bag</option>
-                <option value="accesories">Accesories</option>
+                <option value="accesories">Accessories</option>
                 <option value="batik">Kain Batik</option>
-                <option value="original wears">Original Wears</option>
+                <option value="batik weare">Batik weare</option>
                 <option value="handycraft">Handycraft</option>
                 <option value="gerabah">Gerabah</option>
             </select>
         </li>
         <li>
             <label>Description </label>
-            <textarea name="description" id="field5" class="field-long field-textarea"></textarea>
+            <textarea name="description" id="field5" class="field-long field-textarea" required></textarea>
         </li>
         <li>
             <label>Upload a Picture</label>
